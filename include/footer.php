@@ -2,7 +2,7 @@
 	</div>
 	<!-- footer -->
 	<footer class="footer">
-		<p>&copy; <?php echo date("Y"); ?> Donkey Travel</p>
+		<p>&copy; <?php echo date("Y"); ?> Projectbeheer - www.jeffreypersoon.nl</p>
 	</footer>
 	<script src="js/script.js" rel="script"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
