@@ -11,20 +11,21 @@
 			</div>
 		</div>
 		<?php
-		$welcome = endsWith(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/");
+		$dashboard = endsWith(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "/");
 
-		$boekingen = endsWith(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "boekingen");
-
+		$projecten = endsWith(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), "projecten");
 		?>
 		<ul class="nav nav-tabs">
 			<li class="nav-item">
-				<a class="nav-link <?php if ($welcome) echo "active\" aria-current=\"page"; ?>" href="./">Welkom</a>
+				<a class="nav-link <?php if ($dashboard) echo "active\" aria-current=\"page"; ?>"
+				   href="./">Dashboard</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?php if ($boekingen) echo "active\" aria-current=\"page"; ?>" href="boekingen">Boekingen</a>
+				<a class="nav-link <?php if ($projecten) echo "active\" aria-current=\"page"; ?>" href="projecten">Projecten</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link <?php if (!$welcome && !$boekingen) echo "active\" aria-current=\"page"; ?>" href="gasten">Beheer</a>
+				<a class="nav-link <?php if (!$dashboard && !$projecten) echo "active\" aria-current=\"page"; ?>"
+				   href="gasten">Beheer</a>
 			</li>
 			<li class="nav-item ms-auto">
 				<a class="nav-link text-danger" href="logout">Logout</a>
