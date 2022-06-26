@@ -54,8 +54,8 @@ $router->before('GET|POST|PUT|DELETE', '/(.*)', function($page) {
 	}
 });
 
-$router->all('/boekingen', function () {
-	include 'boekingen.php';
+$router->all('/projecten', function () {
+	include 'projecten.php';
 });
 
 $router->all('/gasten', function () {
@@ -126,8 +126,8 @@ $router->all('/view', function () {
 	include 'view.php';
 });
 
-$router->all('/klant/boekingen', function () {
-	include 'klant/boekingen.php';
+$router->all('/klant/projecten', function () {
+	include 'klant/projecten.php';
 });
 
 $router->all('/klant/account', function () {
