@@ -16,7 +16,7 @@ if (isset($_POST['edit']))
 
 function home()
 {
-    header('Location: boekingen');
+    header('Location: projecten');
     exit();
 }
 ?>
@@ -24,13 +24,13 @@ function home()
 <?php
 $db = new database\Database($db_host, $db_user, $db_pass, $db_name, $db_port);
 
-$boekingen = $db->getBoekingByID($id);
-$pauzeplaatsen = $db->getPauzeplaatsenByBoekingID($id);
+$projecten = $db->getProjectByID($id);
+$pauzeplaatsen = $db->getPauzeplaatsenByProjectID($id);
 $restaurants = $db->getRestaurants();
 
 if (isset($_POST['save']) && isset($_POST['statusID'])) {
     $pauzeplaats = $db->getPauzeplaatsByID($_POST['id']);
-    $db->setPauzeplaats($pauzeplaats->getID(), $pauzeplaats->getBoeking()->getID(), $pauzeplaats->getRestaurant()->getID(), $_POST['statusID']);
+    $db->setPauzeplaats($pauzeplaats->getID(), $pauzeplaats->getProject()->getID(), $pauzeplaats->getRestaurant()->getID(), $_POST['statusID']);
     header('Location: pauzeplaatsen_beheer?id=' . $id);
 }
 else if (isset($_POST['save'])) {
@@ -86,7 +86,7 @@ if (isset($edit)) {
     </form>
 <?php
 } else {
-	$boeking = $db->getBoekingByID($id);
+	$project = $db->getProjectByID($id);
 ?>
     <h3>Pauzeplaatsen</h3>
 	<div class="container mb-3">
@@ -94,31 +94,31 @@ if (isset($edit)) {
 			<div class="col-sm border pb-3">
 				<div class="form-group mt-2">
 					<label for="startdatum">Startdatum:</label>
-					<input value="<?php echo $boeking->getStartdatum(); ?>" name="startDatum" type="date" class="form-control" id="startdatum" disabled>
+					<input value="<?php echo $project->getStartdatum(); ?>" name="startDatum" type="date" class="form-control" id="startdatum" disabled>
 				</div>
 				<div class="form-group mt-2">
 					<label for="eindDatum">Einddatum:</label>
-					<input value="<?php echo $boeking->getEinddatum($boeking); ?>" name="eindDatum" type="date" class="form-control" id="eindDatum" disabled>
+					<input value="<?php echo $project->getEinddatum($project); ?>" name="eindDatum" type="date" class="form-control" id="eindDatum" disabled>
 				</div>
 			</div>
 			<div class="col-sm border pb-3">
 				<div class="form-group mt-2">
 					<label for="klant">Klant:</label>
-						<input name="klantID" class="form-control" aria-label="Select klant" value="<?php echo $boeking->getKlant()->getNaam(); ?>" disabled>
+						<input name="klantID" class="form-control" aria-label="Select klant" value="<?php echo $project->getKlant()->getNaam(); ?>" disabled>
 				</div>
 				<div class="form-group mt-2">
 					<label for="klant">Email / Telefoon:</label>
-					<input name="klantID" class="form-control" aria-label="Select klant" value="<?php echo $boeking->getKlant()->getEmail() . " / " . $boeking->getKlant()->getTelefoon(); ?>" disabled>
+					<input name="klantID" class="form-control" aria-label="Select klant" value="<?php echo $project->getKlant()->getEmail() . " / " . $project->getKlant()->getTelefoon(); ?>" disabled>
 				</div>
 			</div>
 			<div class="col-sm border pb-3">
 				<div class="form-group mt-2">
-					<label for="status">Boekingstatus:</label>
-					<input class="form-control" aria-label="Select status" name="statusID" value="<?php echo $boeking->getStatus()->getStatus(); ?>" disabled>
+					<label for="status">Projectstatus:</label>
+					<input class="form-control" aria-label="Select status" name="statusID" value="<?php echo $project->getStatus()->getStatus(); ?>" disabled>
 				</div>
 				<div class="form-group mt-2">
 					<label for="tocht">Route:</label>
-					<input name="tochtID" class="form-control" aria-label="Select tocht" value="<?php echo $boeking->getTocht()->getOmschrijving(); ?>" disabled>
+					<input name="tochtID" class="form-control" aria-label="Select tocht" value="<?php echo $project->getTocht()->getOmschrijving(); ?>" disabled>
 				</div>
 			</div>
 		</div>
