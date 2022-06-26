@@ -4,7 +4,7 @@
 namespace database;
 
 
-class Boeking
+class Project
 {
 	private $id;
 	private $startDatum;
@@ -37,9 +37,9 @@ class Boeking
 		return $this->startDatum;
 	}
 
-	public function getEindDatum($boeking)
+	public function getEindDatum($project)
 	{
-		return date('Y-m-d', strtotime($boeking->getStartdatum() . ' + ' . $boeking->getTocht()->getAantalDagen() . ' days'));
+		return date('Y-m-d', strtotime($project->getStartdatum() . ' + ' . $project->getTocht()->getAantalDagen() . ' days'));
 	}
 
 	public function getPincode()
