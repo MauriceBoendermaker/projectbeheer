@@ -26,7 +26,6 @@ class Project
 	}
 
 	// -= Get functions =-
-
 	public function getID()
 	{
 		return $this->id;
