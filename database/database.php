@@ -132,6 +132,10 @@ class Database
 //
 //            $result = $this->db->query($query);
         if (is_null($id)) {
+	        $result = $this->db->query("INSERT INTO projecten (StartDatum, FKtochtenID, FKklantenID, FKstatussenID, FKtrackerID) VALUES ('$startDatum', '$fkTochtenID', '$fkKlantenID', '$fkStatussenID', '$fkTrackersID')");
+//			$result = $this->db->query($query);
+//	        $result = $this->db->query("INSERT INTO projecten (StartDatum, FKtochtenID, FKklantenID, FKstatussenID) VALUES ('$id', '$startDatum', '$pinCode', '$fkTochtenID', '$fkKlantenID', '$fkStatussenID', '$fkTrackersID')");
+    }
     }
 
     public function applyProject($project, $new = false)
