@@ -144,36 +144,37 @@ switch ($view) {
 		<h3>Dashboard</h3>
 		<table>
 		<tr>
-			<th>Startdatum</th>
-			<th>Einddatum</th>
-			<th>Status</th>
-			<th>Pincode</th>
 			<th>Klantnaam</th>
-			<th>Tocht</th>
-			<th>Email</th>
-			<th>Telefoon</th>
-			<th class="d-flex justify-content-center">
-				<button class="btn btn-primary min-height-0 btn-sm" onClick='window.location.reload();'><i
-							class='fa-solid fa-arrow-rotate-right'></i></button>
-			</th>
+			<th>Projectnaam</th>
+			<th>Deadline</th>
+			<th>Status</th>
+<!--			<th>Klantnaam</th>-->
+<!--			<th>Tocht</th>-->
+<!--			<th>Email</th>-->
+<!--			<th>Telefoon</th>-->
+<!--			<th class="d-flex justify-content-center">-->
+<!--				<button class="btn btn-primary min-height-0 btn-sm" onClick='window.location.reload();'><i-->
+<!--							class='fa-solid fa-arrow-rotate-right'></i></button>-->
+<!--			</th>-->
 		</tr>
 		<?php
 		foreach ($projecten as $project) {
 			echo "<tr>";
-			echo "<td>" . $project->getStartdatum() . "</td>";
-			echo "<td>" . date('Y-m-d', strtotime($project->getStartdatum() . ' + ' . $project->getTocht()->getAantalDagen() . ' days')) . "</td>";
-			echo "<td>" . $project->getStatus()->getStatus() . "</td>";
-			echo "<td>" . $project->getPINCode() . "</td>";
 			echo "<td>" . $project->getKlant()->getNaam() . "</td>";
 			echo "<td>" . $project->getTocht()->getOmschrijving() . "</td>";
-			echo "<td>" . $project->getKlant()->getEmail() . "</td>";
-			echo "<td>" . $project->getKlant()->getTelefoon() . "</td>";
-			echo "<td class='px-0 d-flex justify-content-center'>
-				<a class='mx-1' href='pauzeplaatsen_beheer?id={$project->getID()}'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-pause'></i></button></a>
-				<a class='mx-1' href='overnachtingsplaatsen_beheer?id={$project->getID()}'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-bed'></i></button></a>";
-			if ($_SESSION['rechten']['update']) echo "<a class='mx-1' href='?id={$project->getID()}&view=edit'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-pen-to-square'></i></button></a>";
-			if ($_SESSION['rechten']['delete']) echo "<a class='mx-1' href='?id={$project->getID()}&view=delete'><button class='btn btn-danger min-height-0 btn-sm'><i class='fa-solid fa-trash-can'></i></button></a>";
-			echo "</td>";
+			echo "<td>" . $project->getStartdatum() . "</td>";
+			echo "<td>" . $project->getStatus()->getStatus() . "</td>";
+
+//			echo "<td>" . $project->getPINCode() . "</td>";
+//			echo "<td>" . date('Y-m-d', strtotime($project->getStartdatum() . ' + ' . $project->getTocht()->getAantalDagen() . ' days')) . "</td>";
+//			echo "<td>" . $project->getKlant()->getEmail() . "</td>";
+//			echo "<td>" . $project->getKlant()->getTelefoon() . "</td>";
+//			echo "<td class='px-0 d-flex justify-content-center'>
+//				<a class='mx-1' href='pauzeplaatsen_beheer?id={$project->getID()}'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-pause'></i></button></a>
+//				<a class='mx-1' href='overnachtingsplaatsen_beheer?id={$project->getID()}'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-bed'></i></button></a>";
+//			if ($_SESSION['rechten']['update']) echo "<a class='mx-1' href='?id={$project->getID()}&view=edit'><button class='btn btn-primary min-height-0 btn-sm'><i class='fa-solid fa-pen-to-square'></i></button></a>";
+//			if ($_SESSION['rechten']['delete']) echo "<a class='mx-1' href='?id={$project->getID()}&view=delete'><button class='btn btn-danger min-height-0 btn-sm'><i class='fa-solid fa-trash-can'></i></button></a>";
+//			echo "</td>";
 			echo "</tr>";
 		}
 		echo "</table>";
