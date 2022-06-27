@@ -519,7 +519,7 @@ class Database
         $result = $this->db->query("SELECT * FROM statussen");
         $statussen = array();
         while ($row = $result->fetch_assoc()) {
-            $statussen[] = new Status($row["ID"], $row["StatusCode"], $row["Status"], boolval($row["Verwijderbaar"]), boolval($row["PINtoekennen"]));
+            $statussen[] = new Status($row["ID"], $row["StatusCode"], $row["Status"], $row["Percentage"], $row["PINtoekennen"]);
         }
         return $statussen;
     }
@@ -530,7 +530,7 @@ class Database
         $result = $this->db->query("SELECT * FROM statussen WHERE ID = $id");
         $row = $result->fetch_assoc();
         if (is_null($row)) return null;
-        return new Status($row["ID"], $row["StatusCode"], $row["Status"], boolval($row["Verwijderbaar"]), boolval($row["PINtoekennen"]));
+        return new Status($row["ID"], $row["StatusCode"], $row["Status"], $row["Percentage"], $row["PINtoekennen"]);
     }
 
     public function setStatus($id, $statusCode, $status, $verwijderbaar, $pintoekennen)
