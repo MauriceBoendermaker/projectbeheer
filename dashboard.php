@@ -142,6 +142,10 @@ switch ($view) {
 	default:
 		?>
 		<h3>Dashboard</h3>
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<a href="register"><button type="button" class="btn btn-dark btn-lg m-5">Nieuwe klant</button></a>
+			<a href="projecten?&view=add"><button type="button" class="btn btn-dark btn-lg m-5">Nieuw project</button></a>
+		</div>
 		<table>
 		<tr>
 			<th>Klantnaam</th>
