@@ -106,32 +106,32 @@ class Database
     {
         $this->connect();
 
+//        if (is_null($id)) {
+//            $query = "INSERT INTO projecten (StartDatum, FKtochtenID, FKklantenID, FKstatussenID";
+//            if (!is_null($pinCode))
+//                $query .= ", PINCode";
+//            if (!is_null($fkTrackersID))
+//                $query .= ", FKtrackerID";
+//            $query .= ") VALUES ('$startDatum', '$fkTochtenID', '$fkKlantenID', '$fkStatussenID'";
+//
+//            if (!is_null($pinCode))
+//                $query .= ", '$pinCode'";
+//            if (!is_null($fkTrackersID))
+//                $query .= ", '$fkTrackersID'";
+//
+//            $query .= ")";
+//
+//            $result = $this->db->query($query);
+//        } else if (is_null($fkTrackersID)) {
+//            $query = "UPDATE projecten SET StartDatum = '$startDatum', FKtochtenID = '$fkTochtenID', FKklantenID = '$fkKlantenID', FKstatussenID = '$fkStatussenID'";
+//            if (!is_null($pinCode))
+//                $query .= ", PINCode = '$pinCode'";
+//            if (!is_null($fkTrackersID))
+//                $query .= ", FKtrackerID = '$fkTrackersID'";
+//            $query .= " WHERE ID = $id";
+//
+//            $result = $this->db->query($query);
         if (is_null($id)) {
-            $query = "INSERT INTO projecten (StartDatum, FKtochtenID, FKklantenID, FKstatussenID";
-            if (!is_null($pinCode))
-                $query .= ", PINCode";
-            if (!is_null($fkTrackersID))
-                $query .= ", FKtrackerID";
-            $query .= ") VALUES ('$startDatum', '$fkTochtenID', '$fkKlantenID', '$fkStatussenID'";
-
-            if (!is_null($pinCode))
-                $query .= ", '$pinCode'";
-            if (!is_null($fkTrackersID))
-                $query .= ", '$fkTrackersID'";
-
-            $query .= ")";
-            
-            $result = $this->db->query($query);
-        } else {
-            $query = "UPDATE projecten SET StartDatum = '$startDatum', FKtochtenID = '$fkTochtenID', FKklantenID = '$fkKlantenID', FKstatussenID = '$fkStatussenID'";
-            if (!is_null($pinCode))
-                $query .= ", PINCode = '$pinCode'";
-            if (!is_null($fkTrackersID))
-                $query .= ", FKtrackerID = '$fkTrackersID'";
-            $query .= " WHERE ID = $id";
-
-            $result = $this->db->query($query);
-        }
     }
 
     public function applyProject($project, $new = false)
