@@ -47,8 +47,7 @@ switch ($view) {
 			<input type="hidden" name="id" value="<?php echo $project->getID(); ?>">
 			<div class="form-group mt-2">
 				<label for="startdatum">Startdatum:</label>
-				<input value="<?php echo $project->getStartdatum(); ?>" name="startDatum" type="date"
-				       class="form-control" id="startdatum" required>
+				<input value="<?php echo $project->getStartdatum(); ?>" name="startDatum" type="date" class="form-control" id="startdatum" required>
 			</div>
 			<div class="form-group mt-2">
 				<label for="status">Status:</label>
