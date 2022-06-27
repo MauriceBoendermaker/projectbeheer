@@ -29,6 +29,12 @@ if (isset($_POST['delete']) && isset($_POST['id'])) {
 	home();
 }
 
+if (isset($_POST['add'])) {
+//	$db->setProject(null, $_POST['startDatum'], null, $_POST['tochtID'], $_POST['klantID'], $_POST['statusID'], null);
+	$db->setProject(null, null, null, null, null, null, null);
+	home();
+}
+
 if (isset($_POST['save'])) {
 	$db->setProject($_POST['id'], $_POST['startDatum'], null, $_POST['tochtID'], $_POST['klantID'], $_POST['statusID'], null);
 	home();
@@ -131,6 +137,33 @@ switch ($view) {
 			</div>
 			<br />
 			<button name="delete" type="submit" class="btn btn-danger">Verwijderen</button>
+			<button name="cancel" type="submit" class="btn btn-primary">Annuleren</button>
+		</form>
+	<?php
+		break;
+	case 'add':
+		?>
+		<h3>Nieuw project</h3>
+		<form action="" method="post">
+			<input type="hidden" id="ID" name="id" value="<?php echo $id; ?>">
+			<div class="form-group mt-2">
+				<label for="startdatum">Startdatum:</label>
+				<input type="date" class="form-control" id="startdatum" name="startdatum" placeholder="Startdatum">
+			</div>
+			<div class="form-group mt-2">
+				<label for="status">Status:</label>
+				<input type="text" class="form-control" id="status" name="status" placeholder="Status">
+			</div>
+			<div class="form-group mt-2">
+				<label for="klant">Klant:</label>
+				<input type="text" class="form-control" id="klant" name="klant" placeholder="Klant">
+			</div>
+			<div class="form-group mt-2">
+				<label for="tocht">Tocht:</label>
+				<input type="text" class="form-control" id="tocht" name="tocht" placeholder="Tocht">
+			</div>
+			<br />
+			<button name="add" type="submit" class="btn btn-success">Toevoegen</button>
 			<button name="cancel" type="submit" class="btn btn-primary">Annuleren</button>
 		</form>
 	<?php
